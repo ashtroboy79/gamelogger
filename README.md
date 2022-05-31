@@ -20,3 +20,12 @@ The tech stack to be used has been specified as follows
 * Git
 * Jenkins
 
+### Project Design
+
+As a boardgamer I find it can be difficult to keep track of my collection as well as my friends collections, as such I intend to create an app that will keep track of gamers and will allow me to link their games with them, thus allowing me to see quickly what games a particular person owns. In addition it will have functionality to rate games after they have been played. Finally the ability to remove games from a user as they update their collection will also be added. 
+
+This is the initial ERD for the app.
+<p align="center">
+  <img width="460" height="300" src="gamelogger.jpg">
+</p>
+
