@@ -1,0 +1,10 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div>
+    {% for gamer in gamers %}
+    {{ gamer.name }}
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -28,3 +28,8 @@ This is the initial ERD for the app.
 <p align="center">
   <img width="700" height="300" src="gamelogger.jpg">
 </p>
+
+This is the trello board that I used for the planning of the app. 
+<p align="center">
+  <img width="700" height="300" src="trello.png">
+</p>
