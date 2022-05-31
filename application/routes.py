@@ -27,4 +27,4 @@ def add_gamer():
 @app.route('/games')
 def games():
     games = Game.query.all()
-    return f"{games}"
+    return render_template('games.html', games=games)
