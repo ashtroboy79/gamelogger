@@ -26,6 +26,5 @@ As a boardgamer I find it can be difficult to keep track of my collection as wel
 
 This is the initial ERD for the app.
 <p align="center">
-  <img width="460" height="300" src="gamelogger.jpg">
+  <img width="700" height="300" src="gamelogger.jpg">
 </p>
-
