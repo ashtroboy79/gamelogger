@@ -4,4 +4,5 @@ from flask import redirect, render_template, url_for, request
 
 @app.route('/', methods=['GET'])
 @app.route('/home', methods=['GET'])
-
+def index():
+    return render_template('home.html')
