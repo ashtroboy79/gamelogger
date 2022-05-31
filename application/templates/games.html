@@ -1,0 +1,10 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div>
+    {% for game in games %}
+    {{ game.name }} 
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}
