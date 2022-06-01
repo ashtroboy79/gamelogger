@@ -34,10 +34,16 @@ class TestAdd(TestBase):
             data = dict(name='James Howlett')
             )
         assert list(Gamer.query.filter_by(name='James Howlett').all())[0].id == 3
+    
+    def test_add_game_get(self):
+        response = self.client.get(url_for('add_gamer'))
+        self.assert200(response)
+        self.assertIn(b'Name', response.data)
+
 
 
 class TestDisplay(TestBase):
     def test_gamers(self):
         response = self.client.get(url_for('gamers'))
-        self.assert200
+        self.assert200(response)
         self.assertIn(b'Bob The Builder', response.data)

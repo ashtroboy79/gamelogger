@@ -1,0 +1,21 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div class="form">
+    <form method="POST" action="">
+
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name }}
+        <br>
+        {{ form.designer.label }} {{ form.designer }}
+        <br>
+        {{ form.genre.label }} {{ form.genre }}
+        <br>
+        {{ form.rating.label }} {{ form.rating }}
+        <br>
+        Gamer: {{ form.gamer_id }}
+        <br>
+        {{ form.submit }}
+    </form>
+</div>
+{% endblock %}
