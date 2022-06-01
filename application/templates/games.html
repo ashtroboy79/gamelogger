@@ -7,6 +7,9 @@
         {{ game.name }} {{ game.gamerbr.name }} {{game.rating}}
         <a href="games/update/{{game.id}}" >
             <button type="button">Update game</button></a> 
+            <form method="POST" action="games/delete/{{game.id}}">
+                <button type="submit" value="Submit">Delete Game</button>
+            </form>
         <br>
         {% endfor %}
         <br>

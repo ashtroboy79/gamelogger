@@ -4,7 +4,7 @@ from flask import url_for, redirect
      
 from flask_testing import TestCase
 from application import app, db
-from application.models import Gamer
+from application.models import Gamer,Game
 
 class TestBase(TestCase):
     def create_app(self):
@@ -19,6 +19,11 @@ class TestBase(TestCase):
         db.create_all()
         bob = Gamer(name='Bob The Builder')
         joe = Gamer(name='Joe Blogs')
+        ben = Gamer(name='Ben')
+        game1 = Game(name='Argent The Consortium',rating=0, gamerbr=bob)
+        game2 = Game(name="Revolution", designer='Steve Jackson',rating=0, gamerbr=bob)
+        game3 = Game(name='Neanderthal', rating=0,gamerbr=ben)
+        db.session.add_all([bob,joe,ben,game1,game2,game3])
         db.session.add_all([bob,joe])
         db.session.commit()
     
@@ -33,7 +38,7 @@ class TestAdd(TestBase):
             url_for('add_gamer'),
             data = dict(name='James Howlett')
             )
-        assert list(Gamer.query.filter_by(name='James Howlett').all())[0].id == 3
+        assert list(Gamer.query.filter_by(name='James Howlett').all())[0].id == 4
     
     def test_add_game_get(self):
         response = self.client.get(url_for('add_gamer'))
@@ -62,3 +67,11 @@ class TestUpdate(TestBase):
         self.assertIn(b'Scott Summers', response.data)
         
     
+class TestDelete(TestBase):
+    def test_delete_user(self):
+        response = self.client.post(url_for('delete_user', id=1),
+                   follow_redirects=True
+                   )
+        self.assert200(response)
+        assert Gamer.query.get(1) is None
+        

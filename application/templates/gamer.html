@@ -5,6 +5,11 @@
     <p style='margin:2%'>
     {% for gamer in gamers %}
     {{ gamer.name }}
+    <a href="gamers/update/{{gamer.id}}" >
+        <button type="button">Update gamer</button></a> 
+    <form method="POST" action="gamers/delete/{{gamer.id}}">
+        <button type="submit" value="Submit">Delete gamer!!</button>
+    </form>
     <br>
     {% endfor %}
     <br>

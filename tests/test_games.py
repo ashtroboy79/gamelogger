@@ -65,3 +65,10 @@ class TestUpdate(TestBase):
         self.assert200(response)
         self.assertIn(b'Stuffed Fables', response.data)
         
+class TestDelete(TestBase):
+    def test_delete_game(self):
+        response = self.client.post(url_for('delete_game', id=1),
+                   follow_redirects=True
+                   )
+        self.assert200(response)
+        assert Game.query.get(1) is None

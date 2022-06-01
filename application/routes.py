@@ -28,7 +28,7 @@ def add_gamer():
 
 @app.route('/gamers/update/<int:id>', methods=['GET','POST'])
 def update_gamer(id):
-    gamer_to_update = Gamer.query.get(id)
+    gamer_to_update = Gamer.query.get_or_404(id)
     form = gamerForm(name=gamer_to_update.name)
     if form.validate_on_submit():
         gamer_to_update.name = form.name.data
@@ -62,17 +62,13 @@ def add_game():
 
 @app.route('/games/update/<int:id>', methods=['GET','POST'])
 def update_game(id):
-    game = Game.query.get(id)
+    game = Game.query.get_or_404(id)
     # print(game_to_update.name, game_to_update.gamer_id)
     gamers = Gamer.query.all()
     form = gameForm(name=game.name, designer=game.designer,
-                    genre=game.genre, rating=game.rating)
+                    genre=game.genre, rating=game.rating, gamer_id=game.gamer_id)
     for gamer in gamers:
         form.gamer_id.choices.append((gamer.id,f"{gamer.name}"))
-    # form.name=game.name
-    # form.designer=game.designer
-    # form.genre=game.genre
-    # form.rating=game.rating
     
     if form.validate_on_submit():
         game.name = form.name.data
@@ -83,3 +79,21 @@ def update_game(id):
         db.session.commit()
         return redirect(url_for('games'))
     return render_template('game_add.html', form=form, page_header='Update game')
+
+@app.route('/games/delete/<int:id>', methods=['POST'])
+def delete_game(id):
+    game = Game.query.get_or_404(id)
+    db.session.delete(game)
+    db.session.commit()
+    return redirect(url_for('games'))
+
+@app.route('/gamers/delete/<int:id>', methods=['POST'])
+def delete_user(id):
+    gamer = Gamer.query.get_or_404(id)
+    games = Game.query.filter_by(gamer_id=id).all()
+    for game in games:
+        db.session.delete(game)
+        db.session.commit()
+    db.session.delete(gamer)
+    db.session.commit()
+    return redirect(url_for('gamers'))
