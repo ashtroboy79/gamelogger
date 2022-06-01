@@ -19,9 +19,9 @@ class TestBase(TestCase):
         bob = Gamer(name='Bob')
         ben = Gamer(name='Ben')
         joe = Gamer(name='Joe')
-        game1 = Game(name='Argent The Consortium', gamerbr=bob)
-        game2 = Game(name="Revolution", designer='Steve Jackson', gamerbr=bob)
-        game3 = Game(name='Neanderthal', gamerbr=ben)
+        game1 = Game(name='Argent The Consortium',rating=0, gamerbr=bob)
+        game2 = Game(name="Revolution", designer='Steve Jackson',rating=0, gamerbr=bob)
+        game3 = Game(name='Neanderthal', rating=0,gamerbr=ben)
         db.session.add_all([bob,ben,joe,game1,game2,game3])
         db.session.commit()
     
@@ -36,8 +36,8 @@ class TestDisplay(TestBase):
         self.assert200(response)
         self.assertIn(b'Neanderthal', response.data)
         
+class TestAdd(TestBase):
     def test_add_game(self):
-
         response = self.client.post(
             url_for('add_game'),
             data = dict(name='Machina Arcana',designer='',genre='',rating=0,  gamer_id=3),
@@ -50,3 +50,18 @@ class TestDisplay(TestBase):
         response = self.client.get(url_for('add_game'))
         self.assert200(response)
         self.assertIn(b'Designer', response.data)
+
+class TestUpdate(TestBase):
+    def test_update_game_get(self):
+        response = self.client.get(url_for('update_game', id=1))
+        self.assert200(response)
+        self.assertIn(b'Argent The Consortium', response.data)
+ 
+    def test_update_game(self):
+        response = self.client.post(url_for('update_game', id=1),
+                   data = dict(name='Stuffed Fables',designer='',genre='', rating=3, gamer_id=1),
+                   follow_redirects=True       
+                   )
+        self.assert200(response)
+        self.assertIn(b'Stuffed Fables', response.data)
+        

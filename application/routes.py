@@ -1,4 +1,5 @@
 from crypt import methods
+from wsgiref import validate
 from application import app, db
 from application.models import Game, Gamer
 from flask import redirect, render_template, url_for, request
@@ -23,7 +24,18 @@ def add_gamer():
         db.session.add(gamer)
         db.session.commit()
         return redirect(url_for('gamers'))
-    return render_template('user_add.html', form=form)
+    return render_template('gamer_add.html', form=form, page_header='Add gamer')
+
+@app.route('/gamers/update/<int:id>', methods=['GET','POST'])
+def update_gamer(id):
+    gamer_to_update = Gamer.query.get(id)
+    form = gamerForm(name=gamer_to_update.name)
+    if form.validate_on_submit():
+        gamer_to_update.name = form.name.data
+        db.session.commit()
+        return redirect(url_for('gamers'))
+    return render_template('gamer_add.html', form=form, page_header='Update gamer')
+    
 
 @app.route('/games')
 def games():
@@ -46,4 +58,28 @@ def add_game():
         db.session.add(new_game)
         db.session.commit()
         return redirect(url_for('games'))
-    return render_template('game_add.html', form=form)
+    return render_template('game_add.html', form=form, page_header='Add Game')
+
+@app.route('/games/update/<int:id>', methods=['GET','POST'])
+def update_game(id):
+    game = Game.query.get(id)
+    # print(game_to_update.name, game_to_update.gamer_id)
+    gamers = Gamer.query.all()
+    form = gameForm(name=game.name, designer=game.designer,
+                    genre=game.genre, rating=game.rating)
+    for gamer in gamers:
+        form.gamer_id.choices.append((gamer.id,f"{gamer.name}"))
+    # form.name=game.name
+    # form.designer=game.designer
+    # form.genre=game.genre
+    # form.rating=game.rating
+    
+    if form.validate_on_submit():
+        game.name = form.name.data
+        game.designer = form.designer.data
+        game.genre = form.genre.data
+        game.rating = form.rating.data
+        game.gamer_id = form.gamer_id.data
+        db.session.commit()
+        return redirect(url_for('games'))
+    return render_template('game_add.html', form=form, page_header='Update game')

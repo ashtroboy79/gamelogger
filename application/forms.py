@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Length, NumberRange
 
 class gamerForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=2, max=50)])
-    submit = SubmitField('Add gamer')
+    submit = SubmitField()
 
 class gameForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=2, max=50)])
@@ -14,4 +14,4 @@ class gameForm(FlaskForm):
     genre = StringField('Genre', validators=[Length(max=50)])
     rating = IntegerField('Rating',default=0, validators=[NumberRange(0,10)])
     gamer_id = SelectField('Gamer', choices=[])
-    submit = SubmitField('Add Game')
+    submit = SubmitField()
