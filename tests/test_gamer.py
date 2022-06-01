@@ -37,7 +37,7 @@ class TestAdd(TestBase):
     
     def test_add_game_get(self):
         response = self.client.get(url_for('add_gamer'))
-        self.assert200
+        self.assert200(response)
         self.assertIn(b'Name', response.data)
 
 
@@ -45,5 +45,5 @@ class TestAdd(TestBase):
 class TestDisplay(TestBase):
     def test_gamers(self):
         response = self.client.get(url_for('gamers'))
-        self.assert200
+        self.assert200(response)
         self.assertIn(b'Bob The Builder', response.data)
