@@ -4,7 +4,6 @@ from application.models import Gamer, Game
 db.drop_all()
 db.create_all()
 
-db.create_all()
 bob = Gamer(name='Bob')
 ben = Gamer(name='Ben')
 joe = Gamer(name='Joe')
