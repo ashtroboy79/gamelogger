@@ -4,7 +4,9 @@
 <div>
     <p style='margin:2%'>
         {% for game in games %}
-        {{ game.name }} 
+        {{ game.name }} {{ game.gamerbr.name }} {{game.rating}}
+        <a href="games/update/{{game.id}}" >
+            <button type="button">Update game</button></a> 
         <br>
         {% endfor %}
         <br>

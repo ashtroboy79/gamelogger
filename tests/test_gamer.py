@@ -18,7 +18,7 @@ class TestBase(TestCase):
     def setUp(self):
         db.create_all()
         bob = Gamer(name='Bob The Builder')
-        joe = Gamer(name='Joe Bloogs')
+        joe = Gamer(name='Joe Blogs')
         db.session.add_all([bob,joe])
         db.session.commit()
     
@@ -40,10 +40,25 @@ class TestAdd(TestBase):
         self.assert200(response)
         self.assertIn(b'Name', response.data)
 
-
-
 class TestDisplay(TestBase):
     def test_gamers(self):
         response = self.client.get(url_for('gamers'))
         self.assert200(response)
         self.assertIn(b'Bob The Builder', response.data)
+
+
+class TestUpdate(TestBase):
+    def test_update_gamer_get(self):
+        response = self.client.get(url_for('update_gamer', id=2))
+        self.assert200(response)
+        self.assertIn(b'Joe Blogs', response.data)
+        
+    def test_update_gamer(self):
+        response = self.client.post(url_for('update_gamer', id=2),
+                   data = dict(name="Scott Summers"),
+                   follow_redirects=True
+                    )
+        self.assert200(response)
+        self.assertIn(b'Scott Summers', response.data)
+        
+    
