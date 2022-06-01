@@ -22,5 +22,5 @@ class TestBase(TestCase):
 class TestIndex(TestBase):
     def test_index(self):
         response = self.client.get(url_for('index'))
-        self.assert200
+        self.assert200(response)
         self.assertIn(b'Welcome to gamelogger', response.data)

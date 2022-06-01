@@ -2,12 +2,15 @@
 
 {% block content %}
 <div class="form">
+   
     <form method="POST" action="">
-
-        {{ form.hidden_tag() }}
-        {{ form.name.label }} {{ form.name }}
-        <br>
-        {{ form.submit }}
+        <p style='margin:2%'>
+            {{ form.hidden_tag() }}
+            {{ form.name.label }} {{ form.name }}
+            <br>
+            {{ form.submit }}
+        </p>
     </form>
+    
 </div>
 {% endblock %}

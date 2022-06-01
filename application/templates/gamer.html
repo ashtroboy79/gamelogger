@@ -2,9 +2,13 @@
 
 {% block content %}
 <div>
+    <p style='margin:2%'>
     {% for gamer in gamers %}
     {{ gamer.name }}
     <br>
     {% endfor %}
+    <br>
+    <a href="gamers/add" ><button type="button">Add a gamer</button></a> 
+    </p>
 </div>
 {% endblock %}
