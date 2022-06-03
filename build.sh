@@ -9,6 +9,6 @@ pip3 install -r requirements.txt
 # Running unit tests
 python3 -m pytest --cov=application --cov-report=html
 # Copying files
-scp -r . jenkins@app-server:/home/jenkins/app
+scp -r $(pwd) jenkins@app-server:/home/jenkins/app
 # Deploying app
 ssh jenkins@app-server < deploy.sh
