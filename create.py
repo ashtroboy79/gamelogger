@@ -1,5 +1,5 @@
 from application import db
-from application.models import Gamer, Game
+# from application.models import Gamer, Game
 
 # db.drop_all()
 db.create_all()
