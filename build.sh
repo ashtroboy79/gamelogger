@@ -11,6 +11,7 @@ python3 -m pytest --cov=application --cov-report=html
 echo 'Copying files'
 scp -r application/ jenkins@app-server:/home/jenkins/application
 scp app.py jenkins@app-server:/home/jenkins
+scp create.py jenkins@app-server:/home/jenkins
 scp requirements.txt jenkins@app-server:/home/jenkins
 echo "Deploying app"
 ssh jenkins@app-server < deploy.sh
