@@ -1,14 +1,16 @@
 #!/bin/bash
-# Installing packages
+echo 'Installing packages'
 sudo apt install python3 python3-pip python3-venv -y
-# Setting up vene
+echo 'Setting up venv'
 python3 -m venv venv
 source venv/bin/activate
-# Installing dependancies
+echo 'Installing dependancies'
 pip3 install -r requirements.txt
-# Running unit tests
+echo 'Running unit tests'
 python3 -m pytest --cov=application --cov-report=html
-# Copying files
-scp -r $(pwd) jenkins@app-server:/home/jenkins/app
-# Deploying app
+echo 'Copying files'
+scp -r application/ jenkins@app-server:/home/jenkins/application
+scp app.py jenkins@app-server:/home/jenkins
+scp requirements.txt jenkins@app-server:/home/jenkins
+echo 'Deploying app'
 ssh jenkins@app-server < deploy.sh
