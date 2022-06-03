@@ -12,5 +12,5 @@ echo 'Copying files'
 scp -r application/ jenkins@app-server:/home/jenkins/application
 scp app.py jenkins@app-server:/home/jenkins
 scp requirements.txt jenkins@app-server:/home/jenkins
-echo 'Deploying app'
+echo "Deploying app"
 ssh jenkins@app-server < deploy.sh
