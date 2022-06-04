@@ -43,6 +43,7 @@ With the basic CRUD functionality completed, the MVP was ready to be deployed. U
 
 At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. 
 
+The unit tests cover 
 
 ### Future Developments
 
