@@ -6,3 +6,4 @@ flask_testing
 wtforms
 pytest
 pytest-cov
+selenium
