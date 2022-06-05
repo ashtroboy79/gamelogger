@@ -33,3 +33,19 @@ This is the trello board that I used for the planning of the app.
 <p align="center">
   <img width="700" height="300" src="trello.png">
 </p>
+
+### Further Development
+<p align="center">
+  <img width="700" height="300" src="trello2.png">
+</p>
+
+With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance. As such I looked at the remaining items on my Trello board. I decided that having a seperate route for rating a game would be redundant as that was already incorporated in the Update Boardgame page/route. As such I moved onto the next task of displaying a single gamers boardgames. 
+
+At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. 
+
+The unit tests cover 
+
+### Future Developments
+
+The app is very basic at this moment, as such there is scope for additional functionality. 
+* Currently the app does not care if multiple gamers own the same game, as it was designed assuming that no duplicate boardgames are owned in a group, as such there is the opportunity to change the relationship between gamer and boardgame from a one-to-many, to a many-to-many relationship as shown in the following ERD 

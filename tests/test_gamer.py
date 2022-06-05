@@ -68,10 +68,17 @@ class TestUpdate(TestBase):
         
     
 class TestDelete(TestBase):
-    def test_delete_user(self):
-        response = self.client.post(url_for('delete_user', id=1),
+    def test_delete_gamer(self):
+        response = self.client.post(url_for('delete_gamer', id=1),
                    follow_redirects=True
                    )
         self.assert200(response)
         assert Gamer.query.get(1) is None
         
+class TestSortedDisplay(TestBase):
+    def test_single_gamer(self):
+        response = self.client.get(url_for('single_gamer', id=1))
+        self.assert200(response)
+        self.assertIn(b'Argent The Consortium', response.data)
+        self.assertIn(b'Revolution', response.data)
+        # assert (b'Neanderthal') not in response.data

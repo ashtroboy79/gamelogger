@@ -88,7 +88,7 @@ def delete_game(id):
     return redirect(url_for('games'))
 
 @app.route('/gamers/delete/<int:id>', methods=['POST'])
-def delete_user(id):
+def delete_gamer(id):
     gamer = Gamer.query.get_or_404(id)
     games = Game.query.filter_by(gamer_id=id).all()
     for game in games:
@@ -97,3 +97,9 @@ def delete_user(id):
     db.session.delete(gamer)
     db.session.commit()
     return redirect(url_for('gamers'))
+
+@app.route('/gamers/<int:id>')
+def single_gamer(id):
+    gamer = Gamer.query.get_or_404(id)
+    games = Game.query.filter_by(gamer_id=id).all()
+    return render_template('games.html', games=games, gamer=gamer)
