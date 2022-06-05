@@ -34,16 +34,26 @@ This is the trello board that I used for the planning of the app.
   <img width="700" height="300" src="trello.png">
 </p>
 
-### Further Development
+### Further Development 
 <p align="center">
   <img width="700" height="300" src="trello2.png">
 </p>
 
-With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance. As such I looked at the remaining items on my Trello board. I decided that having a seperate route for rating a game would be redundant as that was already incorporated in the Update Boardgame page/route. As such I moved onto the next task of displaying a single gamers boardgames. 
+With the basic CRUD functionality completed, the MVP was complete. As such I looked at the remaining items on my Trello board. I decided that having a seperate route for rating a game would be redundant as that was already incorporated in the Update Boardgame page/route. As such I moved onto the next task of displaying a single gamers boardgames. 
 
-At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. 
+### Test results
 
-The unit tests cover 
+At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. These tests cover the backend, that is the routing and CRUD functionality of the app in respect to connectivity to a database, and the addition, the updatability, the retrival and deletion of data in the database. The frontend has been manually tested, and all routes and functionalities are working satisfactorily.
+<p align="center">
+  <img width="700" height="300" src="cov-rep-terminal.png">
+</p>
+<p align="center">
+  <img width="700" height="300" src="jenkins-cov-rep.png">
+</p>
+
+ ### Current Blockers
+
+ With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.
 
 ### Future Developments
 
