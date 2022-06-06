@@ -3,17 +3,26 @@
 {% block content %}
 <div>
     <p style='margin:2%'>
-        {% for game in games %}
-        {{ game.name }} {{ game.gamerbr.name }} {{game.rating}}
-        <a href="games/update/{{game.id}}" >
+        {% if gamer %}
+        {{gamer.name}}'s Games
+        {% else %}
+        All Games
+        {% endif %}
+        <br>
+    </p>
+    
+    {% for game in games %}
+    <p style="margin:2px"></p>
+          Game: {{ game.name }}, Owner: {{ game.gamerbr.name }}, Rating: {{game.rating}}
+        <a href="/games/update/{{game.id}}" >
             <button type="button">Update game</button></a> 
-            <form method="POST" action="games/delete/{{game.id}}">
+            <form method="POST" action="/games/delete/{{game.id}}">
                 <button type="submit" value="Submit">Delete Game</button>
             </form>
-        <br>
-        {% endfor %}
-        <br>
-        <a href="games/add" ><button type="button">Add a game</button></a> 
     </p>
+    {% endfor %}
+    <br>
+    
+    <a href="games/add" ><button type="button">Add a game</button></a> 
 </div>
 {% endblock %}
