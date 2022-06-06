@@ -43,7 +43,7 @@ With the basic CRUD functionality completed, the MVP was complete. As such I loo
 
 ### Test results
 
-At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. These tests cover the backend, that is the routing and CRUD functionality of the app in respect to connectivity to a database, and the addition, the updatability, the retrival and deletion of data in the database. The frontend has been manually tested to check integrationj, and all routes and functionalities are working satisfactorily.
+At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. These tests cover the backend, that is the routing and CRUD functionality of the app in respect to connectivity to a database, and the addition, the updatability, the retrival and deletion of data in the database. The frontend has been manually tested to check integration, and all routes and functionalities are working satisfactorily.
 <p align="center">
   <img width="700" height="300" src="cov-term.png">
 </p>
