@@ -10,3 +10,4 @@ python3 create.py
 echo "gunicorn"
 python3 -m gunicorn -D --workers 4 --bind 0.0.0.0:5000 app:app 
 # adding comment to check deployment is working
+# gunicorn issue when kill command run
