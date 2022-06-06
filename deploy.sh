@@ -9,3 +9,4 @@ sudo kill -9 $(sudo lsof -i :5000 | cut -d' ' -f2 | tail -n 5 | head -n 1)
 python3 create.py
 echo "gunicorn"
 python3 -m gunicorn -D --workers 4 --bind 0.0.0.0:5000 app:app 
+# adding comment to check deployment is working
