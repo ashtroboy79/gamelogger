@@ -12,3 +12,4 @@ python3 -m gunicorn -D --workers 4 --bind 0.0.0.0:5000 app:app
 # adding comment to check deployment is working
 # gunicorn issue when kill command run 
 # checking again 
+# seems that when the kill command is run gunicorn doesnt start up 
