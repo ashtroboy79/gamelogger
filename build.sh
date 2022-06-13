@@ -9,11 +9,6 @@ pip3 install -r requirements.txt
 echo 'Running unit tests'
 python3 -m pytest --cov=application --cov-report=html
 echo 'Copying files'
-ssh jenkins@app-server 
-rm -r application/
-rm app.py
-rm create.py
-exit
 scp -r application/ jenkins@app-server:/home/jenkins/application
 scp app.py jenkins@app-server:/home/jenkins
 scp create.py jenkins@app-server:/home/jenkins
