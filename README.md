@@ -53,7 +53,7 @@ At this point I have 100% coverage via unit tests, as I was doing my best to fol
 
  ### Current Blockers
 
- With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.
+ With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.  I was able to overcome this blocker by following the instructional video from scratch and creating completely new virtual machines as a Jenkins server and 
 
 ### Future Developments
 
@@ -62,3 +62,5 @@ The app is very basic at this moment, as such there is scope for additional func
 * Currently the app does not care if multiple gamers own the same game, as it was designed assuming that no duplicate boardgames are owned in a group, as such there is the opportunity to change the relationship between gamer and boardgame from a one-to-many, to a many-to-many relationship as shown in the following ERD 
 
 * The app currently doesn't have any user authentication, this means that currently anyone can delete any user and modify/delete any game, this is obviously less than ideal. The implementation of user authentication would then mean that only the user could modify their games and delete their account.
+
+* The app is also currently not making use of a number of fields, such as Designer, or Genre, and as such the ability to display games by a single designer or of a single genre could easily be implemented. 
