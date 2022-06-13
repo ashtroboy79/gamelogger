@@ -10,7 +10,7 @@ echo 'Running unit tests'
 python3 -m pytest --cov=application --cov-report=html
 echo 'Copying files'
 ssh jenkins@app-server 
-rm -r home/jenkins/application
+rm -r /application
 rm app.py
 rm create.py
 exit
