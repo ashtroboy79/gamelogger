@@ -6,5 +6,5 @@ flask_testing
 wtforms
 pytest
 pytest-cov
-# selenium
+selenium
 gunicorn
