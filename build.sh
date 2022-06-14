@@ -7,7 +7,7 @@ source venv/bin/activate
 echo 'Installing dependancies'
 pip3 install -r requirements.txt
 echo 'Running unit tests'
-python3 -m pytest --cov=application --cov-report=html
+python3 -m pytest --cov=application --cov-report=html --cov-report=xml
 echo 'Copying files'
 scp -r application/ jenkins@app-server:/home/jenkins/application
 scp app.py jenkins@app-server:/home/jenkins
