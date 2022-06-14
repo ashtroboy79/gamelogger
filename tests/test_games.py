@@ -30,13 +30,13 @@ class TestBase(TestCase):
         db.drop_all()
 
 
-class TestDisplay(TestBase):
+class TestDisplayGames(TestBase):
     def test_gamers(self):
         response = self.client.get(url_for('games'))
         self.assert200(response)
         self.assertIn(b'Neanderthal', response.data)
         
-class TestAdd(TestBase):
+class TestAddGames(TestBase):
     def test_add_game(self):
         response = self.client.post(
             url_for('add_game'),
@@ -51,7 +51,7 @@ class TestAdd(TestBase):
         self.assert200(response)
         self.assertIn(b'Designer', response.data)
 
-class TestUpdate(TestBase):
+class TestUpdateGames(TestBase):
     def test_update_game_get(self):
         response = self.client.get(url_for('update_game', id=1))
         self.assert200(response)
@@ -65,7 +65,7 @@ class TestUpdate(TestBase):
         self.assert200(response)
         self.assertIn(b'Stuffed Fables', response.data)
         
-class TestDelete(TestBase):
+class TestDeleteGames(TestBase):
     def test_delete_game(self):
         response = self.client.post(url_for('delete_game', id=1),
                    follow_redirects=True

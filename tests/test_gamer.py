@@ -32,7 +32,7 @@ class TestBase(TestCase):
         db.drop_all()
 
 
-class TestAdd(TestBase):
+class TestAddGamer(TestBase):
     def test_add_gamer(self):
         response = self.client.post(
             url_for('add_gamer'),
@@ -45,14 +45,14 @@ class TestAdd(TestBase):
         self.assert200(response)
         self.assertIn(b'Name', response.data)
 
-class TestDisplay(TestBase):
+class TestDisplayGamer(TestBase):
     def test_gamers(self):
         response = self.client.get(url_for('gamers'))
         self.assert200(response)
         self.assertIn(b'Bob The Builder', response.data)
 
 
-class TestUpdate(TestBase):
+class TestUpdateGamer(TestBase):
     def test_update_gamer_get(self):
         response = self.client.get(url_for('update_gamer', id=2))
         self.assert200(response)
@@ -67,7 +67,7 @@ class TestUpdate(TestBase):
         self.assertIn(b'Scott Summers', response.data)
         
     
-class TestDelete(TestBase):
+class TestDeleteGamer(TestBase):
     def test_delete_gamer(self):
         response = self.client.post(url_for('delete_gamer', id=1),
                    follow_redirects=True
@@ -81,4 +81,4 @@ class TestSortedDisplay(TestBase):
         self.assert200(response)
         self.assertIn(b'Argent The Consortium', response.data)
         self.assertIn(b'Revolution', response.data)
-        # assert (b'Neanderthal') not in response.data
+        self.assertNotIn(b'Neanderthal', response.data)
