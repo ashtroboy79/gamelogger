@@ -4,6 +4,7 @@ from urllib.request import urlopen
 from flask import url_for
 from application import app, db
 from application.models import Gamer, Game
+from selenium.webdriver.common.action_chains import ActionChains
 
 class TestBase(LiveServerTestCase):
     
@@ -44,16 +45,29 @@ class TestBase(LiveServerTestCase):
         
         
 class GamerTests(TestBase):
-    def test_display_users(self):
+    def test_display_gamers(self):
+       
         element = self.driver.find_element_by_xpath('/html/body/p[1]/a/button')
         element.click()
         
         assert self.driver.current_url == 'http://localhost:5050/gamers'
         self.assertIn("Bob The Builder", self.driver.page_source)
 
-    # def test_display_users(self):
-    #     element = self.driver.find_element_by_xpath('/html/body/nav/div/ul/li[2]/a')
-    #     element.click()
+    # def test_display_gamers1(self):
+       
+    #     # self.driver.switch_to_window
+    #     # self.driver.implicitly_wait(1)
+    #     element = self.driver.find_elements_by_css_selector("a[href$='/gamers")
+    #     print(element)
+    #     ActionChains(self.driver).click(element).perform()
         
     #     assert self.driver.current_url == 'http://localhost:5050/gamers'
+    #     self.assertIn("Bob The Builder", self.driver.page_source)
+
+    # def test_display_games(self):
+           
+    #     element = self.driver.find_elements_by_xpath('/html/body/nav/div/ul/li[3]/a')
+    #     element.click()
+        
+    #     assert self.driver.current_url == 'http://localhost:5050/games'
     #     self.assertIn("Bob The Builder", self.driver.page_source)
