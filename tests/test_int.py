@@ -43,7 +43,17 @@ class TestBase(LiveServerTestCase):
         
         
         
+class GamerTests(TestBase):
+    def test_display_users(self):
+        element = self.driver.find_element_by_xpath('/html/body/p[1]/a/button')
+        element.click()
         
-# /html/body/div/p[1]/a
+        assert self.driver.current_url == 'http://localhost:5050/gamers'
+        self.assertIn("Bob The Builder", self.driver.page_source)
 
-# /html/body/div/form[1]/button
+    # def test_display_users(self):
+    #     element = self.driver.find_element_by_xpath('/html/body/nav/div/ul/li[2]/a')
+    #     element.click()
+        
+    #     assert self.driver.current_url == 'http://localhost:5050/gamers'
+    #     self.assertIn("Bob The Builder", self.driver.page_source)
