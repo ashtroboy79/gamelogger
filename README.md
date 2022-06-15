@@ -29,9 +29,15 @@ This is the initial ERD for the app.
   <img width="700" height="300" src="gamelogger.jpg">
 </p>
 
-This is the trello board that I used for the planning of the app. 
+This is the [trello board](https://trello.com/b/26dEGQU8/gamelog) that I used for the planning of the app. I started by coming up with the basic user stories, these were then used to inform tasks for the backlog which would then be used to select the days/sprints work. 
 <p align="center">
   <img width="700" height="300" src="trello.png">
+</p>
+
+This is the basic risk assessment that I used to try to envision possible risks that I may face and how I may overcome them, most of them cover the possibility of virtual machines failing, and directing me to ensure that I use feature branching of git to ensure that I have some form of functional code. 
+
+<p align="center">
+  <img width="700" height="300" src="risk-assessment.png">
 </p>
 
 ### Further Development 
@@ -43,7 +49,7 @@ With the basic CRUD functionality completed, the MVP was complete. As such I loo
 
 ### Test results
 
-At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. These tests cover the backend, that is the routing and CRUD functionality of the app in respect to connectivity to a database, and the addition, the updatability, the retrival and deletion of data in the database. The frontend has been manually tested to check integration, and all routes and functionalities are working satisfactorily.
+At this point I have 100% coverage via unit tests, as I was doing my best to folow a TDD philosophy of writing the tests and letting them direct me as to what the actual code should be. These tests cover the backend, that is the routing and CRUD functionality of the app in respect to connectivity to a database, and the addition, the updatability, the retrival and deletion of data in the database. The frontend has been tested with some selenium tests and the remaining front end was manually tested and all routes and functionalities are working satisfactorily.
 <p align="center">
   <img width="700" height="300" src="cov-term.png">
 </p>
@@ -51,15 +57,21 @@ At this point I have 100% coverage via unit tests, as I was doing my best to fol
   <img width="700" height="300" src="jenkins-cov.png">
 </p>
 
- ### Current Blockers
+ ### Blockers
 
- With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.  I was able to overcome this blocker by following the instructional video from scratch and creating completely new virtual machines afor the Jenkins server and the deployment server.
+ With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.  I was able to overcome this blocker by following the instructional video from scratch and creating completely new virtual machines for the Jenkins server and the deployment server.
+
+ Currently my biggest issue is with Selenium I have been able to generate some tests to check the front end, however selenium seems unable to locate some of the buttons and links. 
+
+
 
 ### Future Developments
 
 The app is very basic at this moment, as such there is scope for additional functionality. 
 
 * Currently the app does not care if multiple gamers own the same game, as it was designed assuming that no duplicate boardgames are owned in a group, as such there is the opportunity to change the relationship between gamer and boardgame from a one-to-many, to a many-to-many relationship as shown in the following ERD 
+
+
 
 * The app currently doesn't have any user authentication, this means that currently anyone can delete any user and modify/delete any game, this is obviously less than ideal. The implementation of user authentication would then mean that only the user could modify their games and delete their account.
 
