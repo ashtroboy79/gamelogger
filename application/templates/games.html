@@ -13,7 +13,7 @@
     
     {% for game in games %}
     <p style="margin:2px"></p>
-          Game: {{ game.name }}, Owner: {{ game.gamerbr.name }}, Rating: {{game.rating}}
+          Game: {{ game.name }}, Owner: {{ game.gamerbr.name }}, Rating: {{game.rating}}, Designer: {{game.designer}}
         <a href="/games/update/{{game.id}}" >
             <button type="button">Update game</button></a> 
             <form method="POST" action="/games/delete/{{game.id}}">

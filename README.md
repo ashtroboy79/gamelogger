@@ -70,9 +70,10 @@ At this point I have 100% coverage via unit tests, as I was doing my best to fol
 The app is very basic at this moment, as such there is scope for additional functionality. 
 
 * Currently the app does not care if multiple gamers own the same game, as it was designed assuming that no duplicate boardgames are owned in a group, as such there is the opportunity to change the relationship between gamer and boardgame from a one-to-many, to a many-to-many relationship as shown in the following ERD 
+<p align="center">
+  <img width="700" height="380" src="erd-v2.png">
+</p>
 
-
-
-* The app currently doesn't have any user authentication, this means that currently anyone can delete any user and modify/delete any game, this is obviously less than ideal. The implementation of user authentication would then mean that only the user could modify their games and delete their account.
+* The app currently doesn't have any user authentication, this means that currently anyone can delete any user and modify/delete any game, this is obviously less than ideal. The implementation of user authentication would then mean that only the user could modify their games and delete their account. I would probably use Bcrypt to hash the users password so that I am not saving them as plain text strings which would be a security issue. 
 
 * The app is also currently not making use of a number of fields, such as Designer, or Genre, and as such the ability to display games by a single designer or of a single genre could easily be implemented. 
