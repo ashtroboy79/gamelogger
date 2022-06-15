@@ -53,7 +53,7 @@ At this point I have 100% coverage via unit tests, as I was doing my best to fol
 
  ### Current Blockers
 
- With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.  I was able to overcome this blocker by following the instructional video from scratch and creating completely new virtual machines as a Jenkins server and 
+ With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.  I was able to overcome this blocker by following the instructional video from scratch and creating completely new virtual machines afor the Jenkins server and the deployment server.
 
 ### Future Developments
 

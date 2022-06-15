@@ -24,7 +24,6 @@ class TestBase(TestCase):
         game2 = Game(name="Revolution", designer='Steve Jackson',rating=0, gamerbr=bob)
         game3 = Game(name='Neanderthal', rating=0,gamerbr=ben)
         db.session.add_all([bob,joe,ben,game1,game2,game3])
-        db.session.add_all([bob,joe])
         db.session.commit()
     
     def tearDown(self):
