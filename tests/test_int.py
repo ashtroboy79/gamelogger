@@ -82,7 +82,6 @@ class GamerTests(TestBase):
         assert self.driver.current_url == 'http://localhost:5050/gamers/update/1'
         self.driver.find_element(By.NAME, "submit").click() # click submit
         
-        
         assert self.driver.current_url == 'http://localhost:5050/gamers' 
         self.assertIn("Batman See my games", self.driver.page_source)
         
