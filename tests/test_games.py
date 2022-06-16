@@ -18,10 +18,10 @@ class TestBase(TestCase):
         bob = Gamer(name='Bob')
         ben = Gamer(name='Ben')
         joe = Gamer(name='Joe')
-        game1 = Game(name='Argent The Consortium', designer='Trey Chambers', rating=0, gamerbr=bob)
-        game2 = Game(name="Revolution", designer='Steve Jackson', rating=0, gamerbr=bob)
-        game3 = Game(name='Neanderthal', designer='Phil Enklund', rating=0, gamerbr=ben)
-        game4 = Game(name='Greenland', designer='Phil Enklund', rating=0, gamerbr=joe)
+        game1 = Game(name='Argent The Consortium', designer='Trey Chambers', genre='Fantasy', rating=0, gamerbr=bob)
+        game2 = Game(name="Revolution", designer='Steve Jackson', genre='Bluffing', rating=0, gamerbr=bob)
+        game3 = Game(name='Neanderthal', designer='Phil Enklund', genre='Tableu Building', rating=0, gamerbr=ben)
+        game4 = Game(name='Greenland', designer='Phil Enklund', genre='Tableu Building', rating=0, gamerbr=joe)
         db.session.add_all([bob,ben,joe,game1,game2,game3, game4])
         db.session.commit()
     
@@ -86,3 +86,10 @@ class TestDisplayGamesDev(TestBase):
         self.assertNotIn(b'Revolution', response.data)
         self.assertIn(b'Neanderthal', response.data)
         self.assertIn(b'Greenland', response.data)
+
+class TestDisplayGamesGenre(TestBase):
+    def test_games_for_genre(self):
+        response = self.client.get(url_for('games_by_genre', genre='Fantasy'))
+        self.assert200(response)
+        self.assertIn(b'Argent The Consortium', response.data)
+        self.assertNotIn(b'Neanderthal', response.data)

@@ -73,7 +73,20 @@ The app is very basic at this moment, as such there is scope for additional func
 <p align="center">
   <img width="700" height="380" src="erd-v2.png">
 </p>
+* However on further inspection this erd will need to be changed as it is also possible for one designer to have many games, and while rare a game may have multiple designers, a game may also be part of multiple genres.
 
 * The app currently doesn't have any user authentication, this means that currently anyone can delete any user and modify/delete any game, this is obviously less than ideal. The implementation of user authentication would then mean that only the user could modify their games and delete their account. I would probably use Bcrypt to hash the users password so that I am not saving them as plain text strings which would be a security issue. 
 
 * The app is also currently not making use of a number of fields, such as Designer, or Genre, and as such the ability to display games by a single designer or of a single genre could easily be implemented. 
+
+
+### Credits and acknowledgements 
+https://selenium-python.readthedocs.io/getting-started.html for help on getting selenium to work
+
+[Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/) for the navbar and the styling of buttons
+
+Earl Gray, Leon Robinson, Adam Gray, for all their instruction and assisstance, and the members of the 22MayEnable1 cohort for their assisstance in troubleshooting issues.
+
+### Version
+
+Current version is 1.0.0 
