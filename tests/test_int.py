@@ -42,8 +42,7 @@ class TestBase(LiveServerTestCase):
         response = urlopen(f'http://localhost:5050/')
         self.assertEqual(response.code, 200)
         
-        
-        
+               
 class GamerTests(TestBase):
     def test_display_gamers(self):
        
@@ -63,24 +62,7 @@ class GamerTests(TestBase):
         
         assert self.driver.current_url == 'http://localhost:5050/gamers/1'
         self.assertIn("Bob The Builder's Games", self.driver.page_source)
-        
-    # def test_update_gamer(self):
-        
-    #     self.driver.find_element_by_xpath('/html/body/p[1]/a/button').click()
-    #     assert self.driver.current_url == 'http://localhost:5050/gamers'
-        
-    #     self.driver.find_element_by_xpath('/html/body/div/p[2]/a/button').click()
-    #     assert self.driver.current_url == 'http://localhost:5050/gamers/update/1'
-        
-    #     # print("update page")
-    #     element = self.driver.find_element_by_xpath('/html/body/div/form/p/input[2]')
-    #     element.send_keys('G.I. Joe')
-    #     print('filled out form')
-    #     self.driver.find_element_by_xpath('//*[@id="submit"]').click()
-        
-    #     assert self.driver.current_url == 'http://localhost:5050/gamers'
-    #     self.assertIn("G.I Joe See my games", self.driver.page_source)
-        
+         
         
 class GameTests(TestBase):
         
@@ -92,21 +74,3 @@ class GameTests(TestBase):
         assert self.driver.current_url == 'http://localhost:5050/games'
         self.assertIn("Revolution", self.driver.page_source)
         
-    # def test_display_gamers1(self):
-       
-    #     # self.driver.switch_to_window
-    #     # self.driver.implicitly_wait(1)
-    #     element = self.driver.find_elements_by_css_selector("a[href$='/gamers")
-    #     print(element)
-    #     ActionChains(self.driver).click(element).perform()
-        
-    #     assert self.driver.current_url == 'http://localhost:5050/gamers'
-    #     self.assertIn("Bob The Builder", self.driver.page_source)
-
-    # def test_display_games(self):
-           
-    #     element = self.driver.find_elements_by_xpath('/html/body/nav/div/ul/li[3]/a')
-    #     element.click()
-        
-    #     assert self.driver.current_url == 'http://localhost:5050/games'
-    #     self.assertIn("Bob The Builder", self.driver.page_source)

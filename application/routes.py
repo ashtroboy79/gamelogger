@@ -36,7 +36,6 @@ def update_gamer(id):
         return redirect(url_for('gamers'))
     return render_template('gamer_add.html', form=form, page_header='Update gamer')
     
-
 @app.route('/games')
 def games():
     games = Game.query.all()
@@ -63,7 +62,6 @@ def add_game():
 @app.route('/games/update/<int:id>', methods=['GET','POST'])
 def update_game(id):
     game = Game.query.get_or_404(id)
-    # print(game_to_update.name, game_to_update.gamer_id)
     gamers = Gamer.query.all()
     form = gameForm(name=game.name, designer=game.designer,
                     genre=game.genre, rating=game.rating, gamer_id=game.gamer_id)

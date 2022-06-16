@@ -1,6 +1,5 @@
 from urllib import response
-from flask import url_for, redirect
-     
+from flask import url_for, redirect   
 from flask_testing import TestCase
 from application import app, db
 from application.models import Gamer,Game
