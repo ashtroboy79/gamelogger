@@ -5,6 +5,8 @@
     <p style='margin:2%'>
         {% if gamer %}
         {{gamer.name}}'s Games
+        {% elif designer %}
+        {{designer}}'s Games
         {% else %}
         All Games
         {% endif %}
@@ -13,7 +15,7 @@
     
     {% for game in games %}
     <p style="margin:2px"></p>
-          Game: {{ game.name }}, Owner: {{ game.gamerbr.name }}, Rating: {{game.rating}}, Designer: {{game.designer}}, Genre: {{game.genre}}
+          Game: {{ game.name }}, Owner: {{ game.gamerbr.name }}, Rating: {{game.rating}}, {% if not designer  %} Designer: <a href="/games/{{game.designer}}" >{{game.designer}}</a>, {% endif %} Genre: {{game.genre}}
         <a href="/games/update/{{game.id}}" >
             <button type="button">Update game</button></a> 
             <form method="POST" action="/games/delete/{{game.id}}">
