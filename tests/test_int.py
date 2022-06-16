@@ -44,8 +44,7 @@ class TestBase(LiveServerTestCase):
         response = urlopen(f'http://localhost:5050/')
         self.assertEqual(response.code, 200)
         
-        
-        
+               
 class GamerTests(TestBase):
     def test_display_gamers(self):
        
@@ -65,6 +64,7 @@ class GamerTests(TestBase):
         
         assert self.driver.current_url == 'http://localhost:5050/gamers/1'
         self.assertIn("Bob The Builder's Games", self.driver.page_source)
+
         
     # def test_update_gamer(self):
         

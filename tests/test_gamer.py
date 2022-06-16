@@ -1,4 +1,3 @@
-# from tests import TestBase
 from urllib import response
 from flask import url_for, redirect
      
