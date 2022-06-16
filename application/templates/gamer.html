@@ -9,11 +9,13 @@
             <button type="button">Update gamer</button></a>
          </p>
         <form style='margin:0 0 0 2%' method="POST" action="gamers/delete/{{gamer.id}}">
-            <button type="submit" value="Submit">Delete gamer!</button>
+            <button type="submit" value="Submit" class="btn btn-danger">Delete gamer!</button>
         </form>
     </p>
     {% endfor %}
     <br>
-    <a href="gamers/add" ><button type="button">Add a gamer</button></a> 
+    <p style="margin:0 0 0 2%">
+        <a href="gamers/add" ><button type="button">Add a gamer</button></a> 
+    </p>
 </div>
 {% endblock %}
