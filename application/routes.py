@@ -101,3 +101,8 @@ def single_gamer(id):
     gamer = Gamer.query.get_or_404(id)
     games = Game.query.filter_by(gamer_id=id).all()
     return render_template('games.html', games=games, gamer=gamer)
+
+@app.route('/games/<string:designer>')
+def games_by_designer(designer):
+    games = Game.query.filter_by(designer=designer).all()
+    return render_template('games.html', games=games, designer=designer)
