@@ -5,6 +5,8 @@ from flask import url_for
 from application import app, db
 from application.models import Gamer, Game
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+
 
 class TestBase(LiveServerTestCase):
     
@@ -62,7 +64,28 @@ class GamerTests(TestBase):
         
         assert self.driver.current_url == 'http://localhost:5050/gamers/1'
         self.assertIn("Bob The Builder's Games", self.driver.page_source)
-         
+
+        
+    # def test_update_gamer(self):
+        
+    #     self.driver.find_element_by_xpath('/html/body/p[1]/a/button').click() # go from homepage to gamers page
+    #     assert self.driver.current_url == 'http://localhost:5050/gamers' # check we are on the correct page
+        
+    #     self.driver.find_element_by_xpath('/html/body/div/p[2]/a/button').click() # go from gamers page to gamer update page
+    #     assert self.driver.current_url == 'http://localhost:5050/gamers/update/1' # chack we are on the right page
+        
+    #     # print("update page")
+    #     element = self.driver.find_element_by_xpath('/html/body/div/form/p/input[2]') # find name input field
+    #     element.send_keys('G.I. Joe') # fill out form - for some reason
+    #     print('filled out form')
+    #     # assert self.driver.current_url == 'http://localhost:5050/gamers/update/1'
+    #     # print('still on page')
+    #     # self.driver.find_element_by_xpath('//*[@id="submit"]').click() # click submit
+        
+        
+    #     assert self.driver.current_url == 'http://localhost:5050/gamers' 
+    #     self.assertIn("G.I Joe See my games", self.driver.page_source)
+        
         
 class GameTests(TestBase):
         
