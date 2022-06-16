@@ -61,7 +61,7 @@ At this point I have 100% coverage via unit tests, as I was doing my best to fol
 
  With the basic CRUD functionality completed, the MVP was ready to be deployed. Unfortunately at this point I had dificulties getting the deployment script to create any form of database, whether the in memory sqlite or the mysql database running on GCP. As this occured over the Jubilee bankholiday, I would have to wait till the following week to get some assistance.  I was able to overcome this blocker by following the instructional video from scratch and creating completely new virtual machines for the Jenkins server and the deployment server.
 
- Currently my biggest issue is with Selenium I have been able to generate some tests to check the front end, however selenium seems unable to locate some of the buttons and links. 
+ Currently my biggest issue is with Selenium I have been able to generate some tests to check the front end, however selenium seems unable to locate some of the buttons and links.  I am looking to add more selenium tests as I am able to find solutions via google skills and documentation.
 
 
 
@@ -77,7 +77,7 @@ The app is very basic at this moment, as such there is scope for additional func
 
 * The app currently doesn't have any user authentication, this means that currently anyone can delete any user and modify/delete any game, this is obviously less than ideal. The implementation of user authentication would then mean that only the user could modify their games and delete their account. I would probably use Bcrypt to hash the users password so that I am not saving them as plain text strings which would be a security issue. 
 
-* The app is also currently not making use of a number of fields, such as Designer, or Genre, and as such the ability to display games by a single designer or of a single genre could easily be implemented. 
+* The app is also currently not making use of a number of fields, such as Designer, or Genre, and as such the ability to display games by a single designer or of a single genre could easily be implemented.  The basic version of this has been implemented and will be pushed out as version 1.1.0 once suitable testing is done.
 
 
 ### Credits and acknowledgements 
