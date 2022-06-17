@@ -53,6 +53,16 @@ The use of feature branches on git was used to ensure that there was always a re
 
 The application is automatically deployed when an appropriate deployment to github is performed, here a webhook will make a post request to the jenkins server, here the build script is executed, installing the requirements from the requirements.txt, and to run the tests, and then the deploy script is executed. This causes the app to be deployed, using gunicorn, as well as installing the requirements from requirements.txt to the application server. Gunicorn is a Python WSGI HTTP Server, which is light on resources, especially compared to running the application using Flask. 
 
+The following images show the change in what the application looked like, from very basic with no styling to a bit more complex with some more styling. 
+
+<p align="center">
+  <img width="700" height="300" src="images/designmk1.png">
+</p><p align="center">
+  <img width="700" height="300" src="images/designmk2.png">
+</p><p align="center">
+  <img width="700" height="300" src="images/designmk3.png">
+</p>
+
 ### Further Development 
 <p align="center">
   <img width="700" height="300" src="images/trello2.png">
@@ -79,11 +89,11 @@ Here are some screenshots of showing the TDD process, here the test fails and th
 Here are the latest coverage reports for the application and the tests.
 
 <p align="center">
-  <img width="700" height="300" src="images/cov-term-latest.png">
+  <img width="700" height="250" src="images/cov-term-latest.png">
 </p>
 
 <p align="center">
-  <img width="700" height="300" src="images/jenkins-cov-latest.png">
+  <img width="700" height="250" src="images/jenkins-cov-latest.png">
 </p>
 
  ### Blockers
