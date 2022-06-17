@@ -130,3 +130,5 @@ dmypy.json
 
 application/data.db
 application/test.db
+latest_logs/
+archived_logs/
