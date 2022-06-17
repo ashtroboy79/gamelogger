@@ -116,3 +116,43 @@ class GameTests(TestBase):
         self.assertIn("Neanderthal", self.driver.page_source)
         self.assertIn("Greenland", self.driver.page_source)
         self.assertNotIn("Revolution", self.driver.page_source)
+
+    def test_display_by_genre(self):
+        
+        self.driver.find_element_by_xpath('/html/body/p[2]/a').click()
+        assert self.driver.current_url == 'http://localhost:5050/games'
+
+        self.driver.find_element_by_xpath('/html/body/div/p[6]/a[2]').click()
+        assert self.driver.current_url == "http://localhost:5050/games/genre/Tableu%20Building"
+        
+        self.assertIn("All Tableu Building Games", self.driver.page_source)
+        self.assertIn("Neanderthal", self.driver.page_source)
+        self.assertIn("Greenland", self.driver.page_source)
+        self.assertNotIn("Revolution", self.driver.page_source)
+
+    def test_update_game(self):
+        
+        self.driver.find_element_by_xpath('/html/body/p[2]/a').click()
+        assert self.driver.current_url == 'http://localhost:5050/games'
+        
+        self.driver.find_element_by_xpath('/html/body/div/p[2]/a[3]').click()
+        assert self.driver.current_url == "http://localhost:5050/games/update/1"
+        
+        self.assertIn('Update game', self.driver.page_source)
+        
+        element = self.driver.find_element(By.NAME,"designer")
+        element.clear()
+        element.send_keys('Bob Chambers')
+        self.driver.find_element(By.NAME, "submit").click()
+        
+        assert self.driver.current_url == 'http://localhost:5050/games'
+        self.assertIn("Bob Chambers", self.driver.page_source)
+
+    def test_delete_game(self):
+        
+        self.driver.find_element_by_xpath('/html/body/p[2]/a').click()
+        assert self.driver.current_url == 'http://localhost:5050/games'
+        
+        self.driver.find_element_by_xpath('/html/body/div/form[1]/button').click()
+        assert self.driver.current_url == 'http://localhost:5050/games'
+        self.assertNotIn('Argent The Consortium', self.driver.page_source)
