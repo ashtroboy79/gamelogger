@@ -30,10 +30,11 @@ class TestBase(LiveServerTestCase):
         bob = Gamer(name='Bob The Builder')
         joe = Gamer(name='Joe Blogs')
         ben = Gamer(name='Ben')
-        game1 = Game(name='Argent The Consortium',rating=0, gamerbr=bob)
-        game2 = Game(name="Revolution", designer='Steve Jackson',rating=0, gamerbr=bob)
-        game3 = Game(name='Neanderthal', rating=0,gamerbr=ben)
-        db.session.add_all([bob,joe,ben,game1,game2,game3])
+        game1 = Game(name='Argent The Consortium', designer='Trey Chambers', genre='Fantasy',rating=0, gamerbr=bob)
+        game2 = Game(name="Revolution", designer='Steve Jackson', genre='Bluffing' ,rating=0, gamerbr=bob)
+        game3 = Game(name='Neanderthal', designer='Phil Enklund', genre='Tableu Building', rating=0,gamerbr=ben)
+        game4 = Game(name='Greenland', designer='Phil Enklund', genre='Tableu Building', rating=0, gamerbr=joe)
+        db.session.add_all([bob,joe,ben,game1,game2,game3, game4])
         db.session.commit()
         
         self.driver.get(f'http://localhost:5050/')
@@ -103,3 +104,15 @@ class GameTests(TestBase):
         assert self.driver.current_url == 'http://localhost:5050/games'
         self.assertIn("Revolution", self.driver.page_source)
         
+    def test_display_by_designer(self):
+        
+        self.driver.find_element_by_xpath('/html/body/p[2]/a').click()
+        assert self.driver.current_url == 'http://localhost:5050/games'
+
+        self.driver.find_element_by_xpath('/html/body/div/p[6]/a[1]').click()
+        assert self.driver.current_url == "http://localhost:5050/games/designer/Phil%20Enklund"
+        
+        self.assertIn("Games designed by Phil Enklund", self.driver.page_source)
+        self.assertIn("Neanderthal", self.driver.page_source)
+        self.assertIn("Greenland", self.driver.page_source)
+        self.assertNotIn("Revolution", self.driver.page_source)
