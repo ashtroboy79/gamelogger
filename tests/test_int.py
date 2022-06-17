@@ -85,6 +85,13 @@ class GamerTests(TestBase):
         assert self.driver.current_url == 'http://localhost:5050/gamers' 
         self.assertIn("Batman See my games", self.driver.page_source)
         
+    def test_delete_gamer(self):
+        self.driver.find_element_by_xpath('/html/body/p[1]/a').click()
+        assert self.driver.current_url == 'http://localhost:5050/gamers'
+        
+        self.driver.find_element_by_xpath('/html/body/div/form[1]/button').click()
+        assert self.driver.current_url == 'http://localhost:5050/gamers'
+        self.assertNotIn("Bob The Builder's Games", self.driver.page_source)
         
 class GameTests(TestBase):
         
