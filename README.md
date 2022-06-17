@@ -58,7 +58,7 @@ The following images show the change in what the application looked like, from v
 <p align="center">
   <img width="700" height="300" src="images/designmk1.png">
 </p><p align="center">
-  <img width="700" height="300" src="images/designmk2.png">
+  <img width="500" height="300" src="images/designmk2.png">
 </p><p align="center">
   <img width="700" height="300" src="images/designmk3.png">
 </p>
@@ -77,23 +77,23 @@ At this point I have 100% coverage via unit tests, as I was doing my best to fol
 Here are some screenshots of showing the TDD process, here the test fails and the summary points towards the possible issue.
 
 <p align="center">
-  <img width="700" height="300" src="images/TDD-part1.png">
+  <img width="550" height="300" src="images/TDD-part1.png">
 </p>
 
  Once this issue was fixed, the test fails at a different point, thus helping write the appropriate code.
 
 <p align="center">
-  <img width="700" height="300" src="images/TDD-part2.png">
+  <img width="550" height="300" src="images/TDD-part2.png">
 </p>
 
 Here are the latest coverage reports for the application and the tests.
 
 <p align="center">
-  <img width="700" height="250" src="images/cov-term-latest.png">
+  <img width="600" height="250" src="images/cov-term-latest.png">
 </p>
 
 <p align="center">
-  <img width="700" height="250" src="images/jenkins-cov-latest.png">
+  <img width="600" height="250" src="images/jenkins-cov-latest.png">
 </p>
 
  ### Blockers
